@@ -22,14 +22,28 @@ h1 {
     width: 80px;
 }
 
-@media screen and (max-width: 690px) {
-  #board td {
-      border: 1px solid grey;
-      height: calc(12.5vw - 5.12px);
-      width: 12.5vw;
+@media all and (orientation:landscape) {
+  @media screen and (max-height: 775px) {
+    #board td {
+        border: 1px solid grey;
+        height: calc(12.5vh - 12px);
+        width: calc(12.5vh - 12px);
+    }
+    h1 {
+        display: none;
+      }
   }
 }
 
+@media all and (orientation:portrait) {
+  @media screen and (max-width: 690px) {
+    #board td {
+        border: 1px solid grey;
+        height: calc(12.5vw - 5.12px);
+        width: 12.5vw;
+    }
+  }
+}
 
 #board tr:nth-child(odd) td:nth-child(even),
 #board tr:nth-child(even) td:nth-child(odd) {
