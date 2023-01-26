@@ -17,9 +17,53 @@ h1 {
 }
 
 #board td {
+    position: relative; /* This is important to make the pseudo-elements position correctly */
     border: 1px solid grey;
     height: 80px;
     width: 80px;
+}
+
+#board td::before, #board td::after {
+  padding: 3px;
+  visibility: hidden;
+}
+
+#board .rotate::before, #board .rotate::after {
+  transform: rotate(180deg);
+}
+
+#board .show::before, #board .show::after {
+  visibility: visible;
+}
+
+#board td::before {
+  content: attr(data-top);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+}
+
+#board td::after {
+  content: attr(data-bottom);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: red;
+}
+
+#board tr:nth-child(odd) td:nth-child(odd)::before,
+#board tr:nth-child(even) td:nth-child(even)::before,
+#board tr:nth-child(odd) td:nth-child(odd)::after,
+#board tr:nth-child(even) td:nth-child(even)::after  {
+  color: black;
+}
+
+#board tr:nth-child(odd) td:nth-child(even)::before,
+#board tr:nth-child(even) td:nth-child(odd)::before,
+#board tr:nth-child(odd) td:nth-child(even)::after,
+#board tr:nth-child(even) td:nth-child(odd)::after  {
+  color: white;
 }
 
 @media all and (orientation:landscape) {
@@ -47,7 +91,7 @@ h1 {
 
 #board tr:nth-child(odd) td:nth-child(even),
 #board tr:nth-child(even) td:nth-child(odd) {
-  background-color: #ddd;
+  background-color:#a6a6a6;
 }
 
 .correct {
@@ -73,9 +117,5 @@ h1 {
 }
 
 .hidden {
-    display: none;
-}
-
-.hiddenlabel {
     display: none;
 }
