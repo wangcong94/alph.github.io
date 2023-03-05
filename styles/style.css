@@ -1,0 +1,749 @@
+body {
+  font-family: 'Merriweather';
+  text-align: center;
+  margin: 0px;
+  background-color: #414140;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: white;
+}
+
+h2 {
+  font-family: 'Inter';
+  color: #E3E3E3;
+}
+
+p {
+  text-align: left;
+}
+
+.test {
+  display: inline;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: #414140;
+}
+
+#menuIcon {
+  font-size: 1.25rem;
+  cursor: pointer;
+  flex-grow: 1;
+  flex-basis: 5%;
+  text-align: left;
+  z-index: 3;
+  padding-left: 0.75rem;
+}
+
+#title {
+  display: none;
+  text-align: left;
+  margin: 0px;
+}
+
+#subtitle {
+  text-align: left;
+  margin: 0px;
+  flex-grow: 1;
+  flex-basis: 90%;
+}
+
+#icon-info {
+  font-size: 1.25rem;
+  flex-grow: 1;
+  flex-basis: 5%;
+}
+
+/* The side navigation menu */
+.sidebar {
+  height: 100%;
+  width: 67%;
+  max-width: 300px;
+  position: fixed;
+  z-index: 2; /* my pieces have z-index 1, so this is set to 2 to cover them*/
+  top: 0;
+  left: clamp(-67%, -67%, -300px); /* shift sidebar to the left by it's width, the .show class brings the sidebar back*/
+  background-color: black;
+  overflow-x: hidden;
+  white-space: nowrap;
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.05, 0.70, 0.14, 1);
+  display: flex;
+}
+
+.show {
+  left: 0;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0 0 0.5rem;
+  align-items: flex-start;
+}
+
+.sidebar a {
+  padding: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #818181;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+@media (hover: hover) and (pointer: fine) {
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+}
+
+#content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#board {
+  border-collapse: collapse;
+  margin: auto;
+  width: 100vw;
+  height: 100vw;
+}
+
+#board td {
+  padding: 0px;
+  box-sizing: border-box;
+  border: 0px solid grey;
+  position: relative; /* This is important to make the pseudo-elements position correctly */
+  height: 12.5%;
+  width: 12.5%;
+}
+
+#board td::before, #board td::after {
+  padding: 3px;
+  visibility: hidden;
+  font-size: 2.5vw;
+}
+
+#board .rotate::before, #board .rotate::after {
+  transform: rotate(180deg);
+}
+
+#board .show::before, #board .show::after {
+  visibility: visible;
+}
+
+#board td::before {
+  content: attr(data-top);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#board td::after {
+  content: attr(data-bottom);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#board tr:nth-child(odd) td:nth-child(odd)::before,
+#board tr:nth-child(even) td:nth-child(even)::before,
+#board tr:nth-child(odd) td:nth-child(odd)::after,
+#board tr:nth-child(even) td:nth-child(even)::after  {
+  color: black;
+}
+
+#board tr:nth-child(odd) td:nth-child(even)::before,
+#board tr:nth-child(even) td:nth-child(odd)::before,
+#board tr:nth-child(odd) td:nth-child(even)::after,
+#board tr:nth-child(even) td:nth-child(odd)::after  {
+  color: white;
+}
+
+#board-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.lightSquare {
+  background-color: #faedcd;
+}
+
+.darkSquare {
+  background-color: #d4a373;
+}
+
+.piece {
+  width: 90%;
+  height: 90%;
+  margin:auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+}
+
+.bb {
+  background-image: url(assets/bB.svg);
+}
+
+.bn {
+  background-image: url(assets/bN.svg);
+}
+
+.br {
+  background-image: url(assets/bR.svg);
+}
+
+.bk {
+  background-image: url(assets/bK.svg);
+}
+
+.bq {
+  background-image: url(assets/bQ.svg);
+}
+
+.bp {
+  background-image: url(assets/bP.svg);
+}
+
+.wb {
+  background-image: url(assets/wB.svg);
+}
+
+.wn {
+  background-image: url(assets/wN.svg);
+}
+
+.wr {
+  background-image: url(assets/wR.svg);
+}
+
+.wk {
+  background-image: url(assets/wK.svg);
+}
+
+.wq {
+  background-image: url(assets/wQ.svg);
+}
+
+.wp {
+  background-image: url(assets/wP.svg);
+}
+
+.button-options {
+  display: inline-flex;
+  padding: 2px;
+  gap: 0.25rem;
+  background-color: #9A9999;
+  border-radius: 0px 0px 5px 5px;
+}
+
+#toggle-button {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+#widget-container {
+  background-color: #1D1E1D;
+  margin: 1.25rem 1rem 0.25rem 1rem;
+  padding: 10px 5px 5px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 7px;
+  border-radius: 5px;
+}
+
+.widget-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px  10px 5px 10px;
+  gap: 10px;
+}
+
+.colourBox {
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  border: 2px solid #858585;
+  border-radius: 5px;
+}
+
+.whiteBox {
+  background-color: #FFFFFF;
+}
+
+#target {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: white;
+}
+
+#resultIcon {
+  font-size: 1.5rem;
+}
+
+.fa-circle-xmark {
+  color: #e38b81;
+}
+
+.fa-circle-check {
+  color: #91ebbe;
+}
+
+#result {
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+#scoreboard-wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+#scoreboard, #message-score {
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+#scoreboard-breakdown, #message-score-breakdown, #message-highScore {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 200;
+  color: #c5c3c3;
+  margin-top: -3px;
+}
+
+#timer {
+  background-color: #D9D9D9;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+select {
+  background-color: #D9D9D9;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#playButton {
+  font-size: 28px;
+}
+
+.fa-play::before {
+  -webkit-text-stroke: 1px black;
+}
+
+.fa-stop::before {
+  -webkit-text-stroke: 1px black;
+}
+
+#resultColourBar {
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  grid-area: 3 / 1 / 4 / 3;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 30ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#overlay {
+  z-index: 3;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#overlay-sidebar {
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#overlay-sidebar.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scoreAlert {
+  position: fixed;
+  padding: 5px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  /* transition: 50ms ease-in-out; */
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 4;
+  background-color: #414140;
+  width: 80vw;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreAlert.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.scoreAlert-container {
+  padding: 5% 0px 5% 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  border-radius: 10px;
+  width: 97%;
+  margin: 2px 10px 10px 10px;
+}
+
+#message-score {
+  margin-bottom: 10px;
+}
+
+#close-button {
+  background: #DADADA;
+  border-radius: 3px;
+  padding: 5px 0px;
+  color: black;
+  width: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #close-button:hover {
+    color: RoyalBlue;
+  }
+}
+
+.message {
+  color: white;
+  padding: 5vw;
+}
+
+#highScore-icon {
+  background-image: url(assets/icons/crown.svg);
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.highScore-notification {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+.instructions {
+  position: absolute;
+  top:2rem;
+  width: 100%;
+  height: calc(100% - 2rem);
+  background: #1D1E1D;
+  z-index: 3;
+  color: #C5C3C3;
+}
+
+.close-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.instructions-title {
+  flex-grow: 1;
+  text-align: center;
+  padding-left: 2rem;
+}
+
+.instructions-target {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: white;
+}
+
+#close-instructions {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+#demo {
+  justify-content: center;
+}
+
+.instructions a{
+  color: #C5C3C3;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .instructions a:hover{
+    color: DodgerBlue;
+  }
+}
+
+#text-about {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 0 5% 0 5%;
+  align-items: flex-start;
+  color: #E3E3E3;
+}
+
+/* ----------------------- functional classes --------------------------------- */
+.flipped {
+  transform: rotate(180deg);
+}
+
+.hidden {
+  display: none;
+}
+
+[draggable="true"] {
+  position: relative;
+  z-index: 1;
+}
+
+.highlight {
+  background-color: #fff87a;
+  opacity: 0.9;
+}
+
+.correct {
+  background-color: #91ebbe;
+}
+
+.incorrect {
+  background-color: #e38b81;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 3px;
+  cursor: pointer;
+  font-family: "Merriweather";
+}
+
+/* Darker background on mouse-over */
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    color: RoyalBlue;
+  }
+}
+
+/* ----------------------- media queries --------------------------------- */
+@media screen and (min-aspect-ratio: 16/25) {
+  .navbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #686868;
+  }
+
+  #subtitle {
+    text-align: center;
+  }
+
+  #widget-container {
+    margin: 10px 0px;
+  }
+
+  #board {
+    height: calc(100vh - 225px);
+    width: calc(100vh - 225px);
+  }
+
+  #board td::before, #board td::after {
+    font-size: clamp(3px, 2.5vw, 10px);
+  }
+
+  #content-container {
+    display: inline-flex;
+  }
+
+.scoreAlert {
+  max-width: 300px;
+}
+.message {
+  padding: 2vw;
+}
+}
+
+@media screen and (min-aspect-ratio: 6/5) {
+  .navbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #686868;
+    background-color: #1D1E1D;
+  }
+
+  #title {
+    display: inline;
+    flex-grow: 1;
+    flex-basis: 30%;
+    z-index: 3;
+  }
+
+  #subtitle {
+    flex-basis: 60%;
+    text-align: left;
+  }
+
+  .test {
+    display: none;
+  }
+
+  #content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #board {
+    height: 85vh;
+    width: 85vh;
+    max-height: 600px;
+    max-width: 600px;
+  }
+
+  #board td {
+    height: 12.5%;
+    width: 12.5%;
+  }
+
+  #board td::before, #board td::after {
+    font-size: 2.5vh;
+  }
+
+  #widget-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 10px;
+    margin: 0px 10px 30.67px 10px;
+    padding: 10px;
+    border-radius: 1px;
+    min-width: 150px;
+  }
+
+  #target-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #result-wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  #resultColourBar {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+
+  .scoreAlert {
+  max-width: 500px;
+  }
+
+  .message {
+  padding: 2vw;
+  }
+
+  .instructions {
+    padding: 2rem;
+    margin: auto;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+  }
+}
+
+@media screen and (min-width:1100px) {
+  #menuIcon {
+    display: none;
+  }
+
+  #title {
+    padding-left: 1rem;
+    flex-basis: 35%;
+  }
+
+  #subtitle {
+    flex-basis: 55%;
+  }
+
+  .sidebar {
+    left: 0;
+    display: inline;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    margin: 2.5rem 1rem 1rem 1.25rem;
+    padding: 0px;
+  }
+
+  .sidebar-container {
+    padding: 0px;
+  }
+
+  #text-about {
+    width: 70%;
+    margin-left: 15%;
+  }
+}

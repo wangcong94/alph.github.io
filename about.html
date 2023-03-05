@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Chess Training | About</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <!-- Chess icons created by Freepik - Flaticon -->
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/about.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Inter|Roboto Mono">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="navbar">
+    <button id="menuIcon" type="button">
+      <span>&#9776;</span>
+    </button>
+    <h1 id="title">Visualisation Trainer</h1>
+    <h1 id="subtitle">About</h1>
+  </div>
+  <div class="navbarBackground"></div>
+  <div id="sidebar" class="sidebar hidden">
+    <div id="sidebar-container" class="sidebar-container">
+      <a href="coordinate.html"><i class="fa-solid fa-chess-board"></i><span>Coordinate Training</span></a>
+      <a href="piece.html"><i class="fa-solid fa-chess-bishop"></i><span>Piece Visualisation</span></a>
+      <a href="index.html"><i class="fa-solid fa-chess"></i><span>Board Visualisation</span></a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i><span>About</span></a>
+    </div>
+  </div>
+  <div class="container">
+    <div id="text-about" class="container">
+      <h2><u>About Me</u></h2>
+      <p>Hi my name is Wangcong and this Chess Visualisation Trainer is my first Javascript project.</p>
+      <p>
+        I love playing chess, but after an 8 game losing streak in online chess I decided enough was enough and picked up a copy of "Modern Chess Openings".
+      </p>
+      <p>
+        Unfortunately, I struggled to understand the chess notations in the book. It took me more time to figure out what the notated moves were
+        than actually learning about the positions.
+      </p>
+      <p>
+        Hence, I wanted to create a game that would help new players like myself
+        become more familiar with chess notations and feel more confident when reading chess books. This is what led me to create the Chess Visualisation Trainer.
+      </p>
+      <h2><u>About this Project</u></h2>
+      <p>
+        Knowing nothing about Javascript, I started this project on 22 January 2023 by asking ChatGPT how to style a chessboard in CSS.
+      <p>
+        ChatGPT and Stack Overflow has continued to helped me tremendously throughout the project, though as the project became more complicated, I found myself having to actually write code.
+      </p>
+      <p>
+        I made the decision to use vanilla CSS and Javascript to build my fundamentals, which turned out to be a decision that I love to hate.
+        Nevertheless, I did learn a lot from this project and was quite glad I started it.
+      </p>
+      <p>
+        Today, 5 weeks later on the 6th of March, I am happy to upload version 1 of the Chess Visualisation Tool.
+      </p>
+      <h2><u>About Chess Notation</u></h2>
+      <p>
+        Chess notation is a system of symbols and letters used to record moves
+        in a game of chess. It is used to keep track of the moves made by each
+        player and to allow players to review and analyse games after they are
+        played.
+      </p>
+      <p>
+        In algebraic notation, each square on the chessboard is assigned a unique letter
+        and number combination. The letters a-h are used to represent the files (or
+        columns) of the board, while the numbers 1-8 are used to represent the ranks (or
+        rows) of the board. Thus, the bottom left square of the board is called "a1",
+        while the top right square is called "h8".
+      </p>
+      <p>
+        When a piece is moved, its name is followed by the square it is moving to. For
+        example, if the white player moves their pawn from e2 to e4, the move would be
+        written as "e4". If a piece captures an opponent's piece, an "x" is used to
+        indicate the capture. For example, if a white pawn on d5 captures a black pawn
+        on c6, the move would be written as "dxc6".
+      </p>
+      <p>
+        For more details on the chess algebraic notation and information on other types of moves such as castling and en passant captures,
+        please check out this <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">Wikipedia article</a>.
+      </p>
+      <h2><u>Features of the Tool</u></h2>
+        <li>Draggable and clickable pieces</li>
+        <li>Board rotation to allow playing from both White and Black's perspective</li>
+        <li>Toggle the coordinate labels on and off to vary the difficulty</li>
+        <li>Timer and High Score system</li>
+        <li>Responsive design for both mobile and desktop use</li>
+        <p></p>
+    </div>
+
+
+  <div id="overlay" class="overlay"></div>
+  <div id="overlay-sidebar" class="overlay"></div>
+</body>
+<script src="scripts/sidebar.js"></script>
+</html>

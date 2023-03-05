@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Chess Training | Board</title>
+  <title>Chess Training | Piece</title>
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <!-- Chess icons created by Freepik - Flaticon -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Inter|Roboto Mono">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="scripts/chess.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.min.js"></script>
   <script src="pgnLibrary/pgnLibrary.js"></script>
 </head>
 
@@ -18,8 +18,8 @@
     <button id="menuIcon" type="button">
       <span>&#9776;</span>
     </button>
-    <h1 id="title">Visualisation Trainer</h1>
-    <h1 id="subtitle">Board Visualisation</h1>
+    <h1 id="title">Chess Training</h1>
+    <h1 id="subtitle">Piece Visualisation</h1>
     <button id="icon-info" type="button"><i class="fa-regular fa-circle-question"></i></button>
   </div>
   <div id="sidebar" class="sidebar hidden">
@@ -166,11 +166,11 @@
     </div>
     <div class="widget-wrapper" id="demo">
       <div class="colourBox whiteBox"></div>
-      <div class="instructions-target">Rxf8</div>
+      <div class="instructions-target">Rf8</div>
     </div>
-    <div>The target move is given in <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">chess algebraic notation</a>. The square tells you if it is black or white's turn to move. In this case, white Rxf8 means the white Rook takes the piece on the f8 square.</div>
+    <div>The target move is given in <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">chess algebraic notation</a>. The square tells you if it is black or white's turn to move. In this case, white Rf8 means the white Rook moves to the f8 square.</div>
   </div>
 </body>
-<script src="scripts/main.js"></script>
+<script src="scripts/piece.js"></script>
 <script src="scripts/sidebar.js"></script>
 </html>
