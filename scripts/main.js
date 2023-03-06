@@ -101,7 +101,7 @@ function generatePiece(pieceName, squareName) {
   enablePieceDrag(chessPiece);
 }
 
-function undo (errorSquare, previousFEN) {
+function undo(errorSquare, previousFEN) {
   errorSquare.classList.toggle("incorrect");
   setTimeout(() => {
     readFEN(previousFEN);
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function() {
               target = generateTarget();
             }, 300);
           } else {
-            undo (this, target.origFEN);
+            undo(this, target.origFEN);
           }
         }
       } else {
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function() {
             target = generateTarget();
           }, 300);
         } else {
-          undo (this, target.origFEN);
+          undo(this, target.origFEN);
         }
       }
     });

@@ -102,7 +102,7 @@ function set_turn(chess, color) {
   chess.load(tokens.join(' '));
 }
 
-function undo (errorSquare, target) {
+function undo(errorSquare, target) {
   errorSquare.classList.toggle("incorrect");
   setTimeout(() => {
     clearBoard();
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
               target = generateTarget();
             }, 300);
           } else {
-            undo (this, target.origFEN);
+            undo(this, target);
           }
         }
       } else {
@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
             target = generateTarget();
           }, 300);
         } else {
-          undo (this, target.origFEN);
+          undo(this, target);
         }
       }
     });
