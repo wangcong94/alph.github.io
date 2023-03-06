@@ -28,6 +28,8 @@ p {
 .navbar {
   display: flex;
   width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin: 0px;
   margin-bottom: 5px;
   justify-content: space-between;
@@ -39,10 +41,11 @@ p {
   font-size: 1.25rem;
   cursor: pointer;
   flex-grow: 1;
-  flex-basis: 5%;
+  flex-basis: 10%;
   text-align: left;
   z-index: 3;
   padding-left: 0.75rem;
+  color: white;
 }
 
 #title {
@@ -55,13 +58,13 @@ p {
   text-align: left;
   margin: 0px;
   flex-grow: 1;
-  flex-basis: 90%;
+  flex-basis: 80%;
 }
 
 #icon-info {
   font-size: 1.25rem;
   flex-grow: 1;
-  flex-basis: 5%;
+  flex-basis: 10%;
 }
 
 /* The side navigation menu */
@@ -658,7 +661,7 @@ button {
   }
 
   #subtitle {
-    flex-basis: 60%;
+    flex-basis: 50%;
     text-align: left;
   }
 
@@ -735,11 +738,11 @@ button {
 
   #title {
     padding-left: 1rem;
-    flex-basis: 35%;
+    flex-basis: 40%;
   }
 
   #subtitle {
-    flex-basis: 55%;
+    flex-basis: 40%;
   }
 
   .sidebar {
