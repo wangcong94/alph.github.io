@@ -10,7 +10,6 @@ const games = getData();
 var questionArray = [];
 var originalTime;
 
-localStorage.clear();
 if (window.localStorage.getItem("board_highScore1") == null) {
   var board_highScore1 = 0;
 } else {
