@@ -103,7 +103,7 @@ function toggleScoreAlert(scoreAlert) {
   document.getElementById("message-score").textContent = "Score: " + (score.correct - score.incorrect);
   document.getElementById("message-score-breakdown").textContent = "Correct: " + score.correct + " Incorrect: " + score.incorrect;
   let roundScore = score.correct - score.incorrect;
-  if (originalTime == 60) {
+  if (originalTime == 30) {
     if (roundScore > coordinate_highScore1) {
         coordinate_highScore1 = roundScore;
         window.localStorage.setItem("coordinate_highScore1", coordinate_highScore1);
@@ -112,7 +112,7 @@ function toggleScoreAlert(scoreAlert) {
         document.getElementById("highScore-notification").classList.add("hidden");
       }
     document.getElementById('message-highScore').textContent = "High Score: " + coordinate_highScore1;
-  } else if (originalTime == 120) {
+  } else if (originalTime == 60) {
     if (roundScore > coordinate_highScore2) {
         coordinate_highScore2 = roundScore;
         window.localStorage.setItem("coordinate_highScore2", coordinate_highScore2);

@@ -96,7 +96,7 @@ p {
 }
 
 .sidebar a {
-  padding: 5px;
+  padding: 10px;
   text-decoration: none;
   font-size: 1rem;
   color: #818181;
@@ -660,6 +660,10 @@ button {
     background-color: #1D1E1D;
   }
 
+  #menuIcon {
+    flex-basis: 2%;
+  }
+
   #title {
     display: inline;
     flex-grow: 1;
@@ -738,7 +742,7 @@ button {
   }
 }
 
-@media screen and (min-width:1300px) {
+@media screen and (min-aspect-ratio: 8/5) {
   #menuIcon {
     display: none;
   }
@@ -763,7 +767,7 @@ button {
   }
 
   .sidebar-container {
-    padding: 0px;
+    padding: 10px;
   }
 
   #text-about {

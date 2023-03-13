@@ -10,6 +10,7 @@ const games = getData();
 var questionArray = [];
 var originalTime;
 
+localStorage.clear();
 if (window.localStorage.getItem("board_highScore1") == null) {
   var board_highScore1 = 0;
 } else {
@@ -224,7 +225,7 @@ function toggleScoreAlert(scoreAlert) {
   document.getElementById("message-score").textContent = "Score: " + (score.correct - score.incorrect);
   document.getElementById("message-score-breakdown").textContent = "Correct: " + score.correct + " Incorrect: " + score.incorrect;
   let roundScore = score.correct - score.incorrect;
-  if (originalTime == 60) {
+  if (originalTime == 30) {
     if (roundScore > board_highScore1) {
         board_highScore1 = roundScore;
         window.localStorage.setItem("board_highScore1", board_highScore1);
@@ -233,7 +234,7 @@ function toggleScoreAlert(scoreAlert) {
         document.getElementById("highScore-notification").classList.add("hidden");
       }
     document.getElementById('message-highScore').textContent = "High Score: " + board_highScore1;
-  } else if (originalTime == 120) {
+  } else if (originalTime == 60) {
     if (roundScore > board_highScore2) {
         board_highScore2 = roundScore;
         window.localStorage.setItem("board_highScore2", board_highScore2);
