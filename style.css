@@ -41,7 +41,6 @@ p {
   font-size: 1.25rem;
   cursor: pointer;
   flex-grow: 1;
-  flex-basis: 10%;
   text-align: left;
   z-index: 3;
   padding-left: 0.75rem;
@@ -659,11 +658,7 @@ button {
     border-bottom: 1px solid #686868;
     background-color: #1D1E1D;
   }
-
-  #menuIcon {
-    flex-basis: 2%;
-  }
-
+  
   #title {
     display: inline;
     flex-grow: 1;
